@@ -5,17 +5,27 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const menuData = [
+type MenuItem = {
+  name: string;
+  price: string;
+  extraPrice?: string;
+  desc: string;
+  img?: string;
+  imgPosition?: string;
+  containerClass?: string;
+};
+
+const menuData: { category: string; id: string; items: MenuItem[] }[] = [
   {
     category: "Çorbalar",
     id: "corbalar",
     items: [
-      { name: "Mercimek Çorbası", price: "150 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/mercimek_corbasi.png" },
-      { name: "Ezogelin Çorbası", price: "150 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/ezogelin_corbasi.png" },
-      { name: "Yayla Çorbası", price: "170 TL", desc: "", img: "/yayla_corbasi.png" },
+      { name: "Mercimek Çorbası", price: "190 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/mercimek_corbasi.png" },
+      { name: "Ezogelin Çorbası", price: "190 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/ezogelin_corbasi.png" },
+      { name: "Yayla Çorbası", price: "190 TL", desc: "", img: "/yayla_corbasi.png" },
       { name: "Tavuk Çorbası (Arabaşı)", price: "220 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/arabasi_corbasi.png" },
-      { name: "İşkembe Çorbası", price: "280 TL", desc: "", img: "/iskembe_corbasi.png" },
-      { name: "Kelle Paça Çorbası", price: "320 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/kelle_paca_corbasi.png" },
+      { name: "İşkembe Çorbası", price: "290 TL", desc: "", img: "/iskembe_corbasi.png" },
+      { name: "Kelle Paça Çorbası", price: "340 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/kelle_paca_corbasi.png" },
       { name: "Etli Kemik Suyu", price: "340 TL", desc: "", img: "/kelle_paca_corbasi.png" },
       { name: "Beyran Çorbası", price: "360 TL", desc: "", img: "/beyran.png", imgPosition: "object-[center_15%]" },
     ]
@@ -24,25 +34,35 @@ const menuData = [
     category: "Mantılar",
     id: "mantilar",
     items: [
-      { name: "Kayseri Mantısı", price: "400 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/kayseri_mantisi.png" },
-      { name: "Çıtır Mantı", price: "400 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/citir_manti.png" },
-      { name: "Hingel Mantı", price: "400 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
-      { name: "Tepsi Mantı", price: "450 TL", desc: "", img: "/tepsi_manti.png" },
+      { name: "Kayseri Mantısı", price: "490 TL", extraPrice: "1,5 Porsiyon: 700 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/kayseri_mantisi.png" },
+      { name: "Çıtır Mantı", price: "550 TL", extraPrice: "1,5 Porsiyon: 750 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/citir_manti.png" },
+      { name: "Kıymalı Hingel", price: "490 TL", extraPrice: "1,5 Porsiyon: 700 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
+      { name: "Patatesli Hingel", price: "400 TL", extraPrice: "1,5 Porsiyon: 500 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
+      { name: "Tepsi Mantı", price: "600 TL", desc: "", img: "/tepsi_manti.png" },
     ]
   },
   {
     category: "Kayseri Yağlaması",
     id: "yaglamalar",
     items: [
-      { name: "Kayseri Yağlaması", price: "450 TL", desc: "Biber turşusu, salata, yoğurt ile", img: "/kayseri_yaglamasi.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_60%]" },
+      { name: "Kayseri Yağlaması", price: "580 TL", desc: "Biber turşusu, salata, yoğurt ile", img: "/kayseri_yaglamasi.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_60%]" },
     ]
   },
   {
     category: "Yan Ürünler",
     id: "yan-urunler",
     items: [
-      { name: "İçli Köfte (2 adet)", price: "220 TL", desc: "Kızartılmış", img: "/icli_kofte.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-center" },
-      { name: "Zeytinyağlı Yaprak Sarma", price: "200 TL", desc: "", img: "/zeytinyagli_yaprak_sarma.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_20%]" },
+      { name: "İçli Köfte (Porsiyon)", price: "250 TL", extraPrice: "Adet: 150 TL", desc: "Kızartılmış", img: "/icli_kofte.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-center" },
+      { name: "Zeytinyağlı Yaprak Sarma", price: "250 TL", desc: "", img: "/zeytinyagli_yaprak_sarma.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_20%]" },
+      { name: "Çiğ Köfte (Porsiyon)", price: "250 TL", desc: "", img: "/cigkofte_gorsel.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-center" },
+    ]
+  },
+  {
+    category: "Sıcak İçecekler",
+    id: "sicak-icecekler",
+    items: [
+      { name: "Çay", price: "30 TL", desc: "" },
+      { name: "Türk Kahvesi", price: "100 TL", desc: "" },
     ]
   }
 ];
@@ -134,7 +154,7 @@ export default function MenuPage() {
         <div className="container mx-auto overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
           <nav className="flex items-center space-x-6 sm:space-x-8 md:space-x-12 px-2 sm:px-6 justify-center whitespace-nowrap min-w-max md:min-w-0 w-full mx-auto">
             {menuData
-              .filter(cat => cat.id !== "yan-urunler")
+              .filter(cat => cat.id !== "yan-urunler" && cat.id !== "sicak-icecekler")
               .map((cat, index, filteredArray) => (
               <a 
                 key={cat.id} 
@@ -163,7 +183,8 @@ export default function MenuPage() {
               {category.items.map((item, idx) => (
                 <div key={idx} className="menu-item flex flex-col group opacity-0">
                   {/* Organic Shape Menu Image */}
-                  <div className={`relative w-full mb-4 md:mb-6 overflow-hidden clip-rounded-top shadow-lg ${(item as any)?.containerClass || 'h-[12rem] sm:h-[18rem] md:h-[22rem] lg:h-[26rem] xl:h-[28rem]'}`}>
+                  {item.img && (
+                  <div className={`relative w-full mb-4 md:mb-6 overflow-hidden clip-rounded-top shadow-lg ${item.containerClass || 'h-[12rem] sm:h-[18rem] md:h-[22rem] lg:h-[26rem] xl:h-[28rem]'}`}>
                      <Image 
                        src={item.img} 
                        alt={item.name} 
@@ -173,6 +194,7 @@ export default function MenuPage() {
                        className={`object-cover transition-transform duration-700 group-hover:scale-105 ${item.imgPosition || 'object-[center_35%]'}`}
                      />
                   </div>
+                  )}
 
                   <div className="flex items-start sm:items-baseline justify-between mb-3 w-full gap-3 sm:gap-0">
                     <h3 className="text-base sm:text-xl md:text-2xl font-serif text-[#2A3B2C] group-hover:text-[#8B5A2B] transition-colors leading-tight">
@@ -186,8 +208,12 @@ export default function MenuPage() {
                       {item.price}
                     </span>
                   </div>
-                  
-                  
+
+                  {item.extraPrice && (
+                    <span className="text-sm sm:text-base md:text-lg font-serif italic text-stone-600 text-right">
+                      {item.extraPrice}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
