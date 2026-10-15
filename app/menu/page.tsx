@@ -34,9 +34,9 @@ const menuData: { category: string; id: string; items: MenuItem[] }[] = [
     category: "Mantılar",
     id: "mantilar",
     items: [
-      { name: "Kayseri Mantısı", price: "490 TL", extraPrice: "1,5 Porsiyon: 700 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/kayseri_mantisi.png" },
-      { name: "Çıtır Mantı", price: "550 TL", extraPrice: "1,5 Porsiyon: 750 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/citir_manti.png" },
-      { name: "Kıymalı Hingel", price: "490 TL", extraPrice: "1,5 Porsiyon: 700 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
+      { name: "Kayseri Mantısı", price: "490 TL", extraPrice: "1,5 Porsiyon: 620 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/kayseri_mantisi.png" },
+      { name: "Çıtır Mantı", price: "550 TL", extraPrice: "1,5 Porsiyon: 680 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/citir_manti.png" },
+      { name: "Kıymalı Hingel", price: "490 TL", extraPrice: "1,5 Porsiyon: 620 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
       { name: "Patatesli Hingel", price: "400 TL", extraPrice: "1,5 Porsiyon: 500 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
       { name: "Tepsi Mantı", price: "600 TL", desc: "", img: "/tepsi_manti.png" },
     ]
@@ -45,7 +45,7 @@ const menuData: { category: string; id: string; items: MenuItem[] }[] = [
     category: "Kayseri Yağlaması",
     id: "yaglamalar",
     items: [
-      { name: "Kayseri Yağlaması", price: "580 TL", desc: "Biber turşusu, salata, yoğurt ile", img: "/kayseri_yaglamasi.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_60%]" },
+      { name: "Kayseri Yağlaması", price: "550 TL", extraPrice: "1,5 Porsiyon: 700 TL", desc: "Biber turşusu, salata, yoğurt ile", img: "/kayseri_yaglamasi.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_60%]" },
     ]
   },
   {
