@@ -58,6 +58,13 @@ const menuData: { category: string; id: string; items: MenuItem[] }[] = [
     ]
   },
   {
+    category: "Tatlılar",
+    id: "tatlilar",
+    items: [
+      { name: "Çıtır Tatlı", price: "300 TL", desc: "", img: "/tatli.png", imgPosition: "object-center" },
+    ]
+  },
+  {
     category: "Sıcak İçecekler",
     id: "sicak-icecekler",
     items: [
