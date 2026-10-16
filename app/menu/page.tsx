@@ -45,7 +45,7 @@ const menuData: { category: string; id: string; items: MenuItem[] }[] = [
     category: "Kayseri Yağlaması",
     id: "yaglamalar",
     items: [
-      { name: "Kayseri Yağlaması", price: "550 TL", extraPrice: "1,5 Porsiyon: 700 TL", desc: "Biber turşusu, salata, yoğurt ile", img: "/kayseri_yaglamasi.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_60%]" },
+      { name: "Kayseri Yağlaması", price: "550 TL", extraPrice: "1,5 Porsiyon: 780 TL", desc: "Biber turşusu, salata, yoğurt ile", img: "/kayseri_yaglamasi.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_60%]" },
     ]
   },
   {
