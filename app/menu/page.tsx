@@ -5,74 +5,10 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-type MenuItem = {
-  name: string;
-  price: string;
-  extraPrice?: string;
-  desc: string;
-  img?: string;
-  imgPosition?: string;
-  containerClass?: string;
-};
+import menuJson from "@/data/menu.json";
+import { formatPrice, type MenuCategory } from "@/lib/menu";
 
-const menuData: { category: string; id: string; items: MenuItem[] }[] = [
-  {
-    category: "Çorbalar",
-    id: "corbalar",
-    items: [
-      { name: "Mercimek Çorbası", price: "190 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/mercimek_corbasi.png" },
-      { name: "Ezogelin Çorbası", price: "190 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/ezogelin_corbasi.png" },
-      { name: "Yayla Çorbası", price: "190 TL", desc: "", img: "/yayla_corbasi.png" },
-      { name: "Tavuk Çorbası (Arabaşı)", price: "220 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/arabasi_corbasi.png" },
-      { name: "İşkembe Çorbası", price: "290 TL", desc: "", img: "/iskembe_corbasi.png" },
-      { name: "Kelle Paça Çorbası", price: "340 TL", desc: "Biber turşusu, turp, ekmek ile", img: "/kelle_paca_corbasi.png" },
-      { name: "Etli Kemik Suyu", price: "340 TL", desc: "", img: "/kelle_paca_corbasi.png" },
-      { name: "Beyran Çorbası", price: "360 TL", desc: "", img: "/beyran.png", imgPosition: "object-[center_15%]" },
-    ]
-  },
-  {
-    category: "Mantılar",
-    id: "mantilar",
-    items: [
-      { name: "Kayseri Mantısı", price: "490 TL", extraPrice: "1,5 Porsiyon: 620 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/kayseri_mantisi.png" },
-      { name: "Çıtır Mantı", price: "550 TL", extraPrice: "1,5 Porsiyon: 680 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/citir_manti.png" },
-      { name: "Kıymalı Hingel", price: "490 TL", extraPrice: "1,5 Porsiyon: 620 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
-      { name: "Patatesli Hingel", price: "400 TL", extraPrice: "1,5 Porsiyon: 500 TL", desc: "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile", img: "/hingel_manti.png" },
-      { name: "Tepsi Mantı", price: "600 TL", desc: "", img: "/tepsi_manti.png" },
-    ]
-  },
-  {
-    category: "Kayseri Yağlaması",
-    id: "yaglamalar",
-    items: [
-      { name: "Kayseri Yağlaması", price: "550 TL", extraPrice: "1,5 Porsiyon: 780 TL", desc: "Biber turşusu, salata, yoğurt ile", img: "/kayseri_yaglamasi.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_60%]" },
-    ]
-  },
-  {
-    category: "Yan Ürünler",
-    id: "yan-urunler",
-    items: [
-      { name: "İçli Köfte (Porsiyon)", price: "250 TL", extraPrice: "Adet: 150 TL", desc: "Kızartılmış", img: "/icli_kofte.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-center" },
-      { name: "Zeytinyağlı Yaprak Sarma", price: "250 TL", desc: "", img: "/zeytinyagli_yaprak_sarma.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-[center_20%]" },
-      { name: "Çiğ Köfte (Porsiyon)", price: "250 TL", desc: "", img: "/cigkofte_gorsel.png", containerClass: "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]", imgPosition: "object-center" },
-    ]
-  },
-  {
-    category: "Tatlılar",
-    id: "tatlilar",
-    items: [
-      { name: "Çıtır Tatlı", price: "300 TL", desc: "", img: "/tatli.png", imgPosition: "object-center" },
-    ]
-  },
-  {
-    category: "Sıcak İçecekler",
-    id: "sicak-icecekler",
-    items: [
-      { name: "Çay", price: "30 TL", desc: "" },
-      { name: "Türk Kahvesi", price: "100 TL", desc: "" },
-    ]
-  }
-];
+const menuData = menuJson as MenuCategory[];
 
 export default function MenuPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -212,13 +148,13 @@ export default function MenuPage() {
                     <div className="hidden sm:block flex-grow mx-4 border-b-[2px] border-dotted border-[#2A3B2C]/30 relative top-[-6px] min-w-[20px]"></div>
                     
                     <span className="text-base sm:text-xl md:text-2xl font-serif text-[#2A3B2C] group-hover:text-[#8B5A2B] transition-colors whitespace-nowrap">
-                      {item.price}
+                      {formatPrice(item.price)}
                     </span>
                   </div>
 
-                  {item.extraPrice && (
+                  {item.extraLabel && item.extraPrice !== undefined && (
                     <span className="text-sm sm:text-base md:text-lg font-serif italic text-stone-600 text-right">
-                      {item.extraPrice}
+                      {item.extraLabel}: {formatPrice(item.extraPrice)}
                     </span>
                   )}
                 </div>

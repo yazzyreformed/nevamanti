@@ -1,0 +1,178 @@
+[
+  {
+    "category": "Çorbalar",
+    "id": "corbalar",
+    "items": [
+      {
+        "name": "Mercimek Çorbası",
+        "price": 190,
+        "desc": "Biber turşusu, turp, ekmek ile",
+        "img": "/mercimek_corbasi.png"
+      },
+      {
+        "name": "Ezogelin Çorbası",
+        "price": 190,
+        "desc": "Biber turşusu, turp, ekmek ile",
+        "img": "/ezogelin_corbasi.png"
+      },
+      {
+        "name": "Yayla Çorbası",
+        "price": 190,
+        "desc": "",
+        "img": "/yayla_corbasi.png"
+      },
+      {
+        "name": "Tavuk Çorbası (Arabaşı)",
+        "price": 220,
+        "desc": "Biber turşusu, turp, ekmek ile",
+        "img": "/arabasi_corbasi.png"
+      },
+      {
+        "name": "İşkembe Çorbası",
+        "price": 290,
+        "desc": "",
+        "img": "/iskembe_corbasi.png"
+      },
+      {
+        "name": "Kelle Paça Çorbası",
+        "price": 340,
+        "desc": "Biber turşusu, turp, ekmek ile",
+        "img": "/kelle_paca_corbasi.png"
+      },
+      {
+        "name": "Etli Kemik Suyu",
+        "price": 340,
+        "desc": "",
+        "img": "/kelle_paca_corbasi.png"
+      },
+      {
+        "name": "Beyran Çorbası",
+        "price": 360,
+        "desc": "",
+        "img": "/beyran.png",
+        "imgPosition": "object-[center_15%]"
+      }
+    ]
+  },
+  {
+    "category": "Mantılar",
+    "id": "mantilar",
+    "items": [
+      {
+        "name": "Kayseri Mantısı",
+        "price": 490,
+        "extraLabel": "1,5 Porsiyon",
+        "extraPrice": 620,
+        "desc": "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile",
+        "img": "/kayseri_mantisi.png"
+      },
+      {
+        "name": "Çıtır Mantı",
+        "price": 550,
+        "extraLabel": "1,5 Porsiyon",
+        "extraPrice": 680,
+        "desc": "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile",
+        "img": "/citir_manti.png"
+      },
+      {
+        "name": "Kıymalı Hingel",
+        "price": 490,
+        "extraLabel": "1,5 Porsiyon",
+        "extraPrice": 620,
+        "desc": "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile",
+        "img": "/hingel_manti.png"
+      },
+      {
+        "name": "Patatesli Hingel",
+        "price": 400,
+        "extraLabel": "1,5 Porsiyon",
+        "extraPrice": 500,
+        "desc": "İsteğe göre yoğurt, sos. Biber turşusu, salata, ekmek ile",
+        "img": "/hingel_manti.png"
+      },
+      {
+        "name": "Tepsi Mantı",
+        "price": 600,
+        "desc": "",
+        "img": "/tepsi_manti.png"
+      }
+    ]
+  },
+  {
+    "category": "Kayseri Yağlaması",
+    "id": "yaglamalar",
+    "items": [
+      {
+        "name": "Kayseri Yağlaması",
+        "price": 550,
+        "extraLabel": "1,5 Porsiyon",
+        "extraPrice": 780,
+        "desc": "Biber turşusu, salata, yoğurt ile",
+        "img": "/kayseri_yaglamasi.png",
+        "imgPosition": "object-[center_60%]",
+        "containerClass": "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]"
+      }
+    ]
+  },
+  {
+    "category": "Yan Ürünler",
+    "id": "yan-urunler",
+    "items": [
+      {
+        "name": "İçli Köfte (Porsiyon)",
+        "price": 250,
+        "extraLabel": "Adet",
+        "extraPrice": 150,
+        "desc": "Kızartılmış",
+        "img": "/icli_kofte.png",
+        "imgPosition": "object-center",
+        "containerClass": "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]"
+      },
+      {
+        "name": "Zeytinyağlı Yaprak Sarma",
+        "price": 250,
+        "desc": "",
+        "img": "/zeytinyagli_yaprak_sarma.png",
+        "imgPosition": "object-[center_20%]",
+        "containerClass": "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]"
+      },
+      {
+        "name": "Çiğ Köfte (Porsiyon)",
+        "price": 250,
+        "desc": "",
+        "img": "/cigkofte_gorsel.png",
+        "imgPosition": "object-center",
+        "containerClass": "h-64 md:h-72 lg:h-[20rem] xl:h-[22rem]"
+      }
+    ]
+  },
+  {
+    "category": "Tatlılar",
+    "id": "tatlilar",
+    "items": [
+      {
+        "name": "Çıtır Tatlı",
+        "price": 300,
+        "desc": "",
+        "img": "/tatli.png",
+        "imgPosition": "object-center"
+      }
+    ]
+  },
+  {
+    "category": "Sıcak İçecekler",
+    "id": "sicak-icecekler",
+    "items": [
+      {
+        "name": "Çay",
+        "price": 30,
+        "desc": ""
+      },
+      {
+        "name": "Türk Kahvesi",
+        "price": 100,
+        "desc": ""
+      }
+    ]
+  }
+]
